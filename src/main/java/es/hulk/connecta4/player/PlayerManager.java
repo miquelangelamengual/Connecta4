@@ -29,4 +29,13 @@ public class PlayerManager {
         }
         return null;
     }
+
+    public static Player getPlayerByName(String name) {
+        for (Player player : playerList) {
+            if (player.getName().equals(name)) {
+                return player;
+            }
+        }
+        return null;
+    }
 }
