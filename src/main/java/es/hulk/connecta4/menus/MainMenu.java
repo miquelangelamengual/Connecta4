@@ -19,9 +19,14 @@ public class MainMenu {
 
     public void createPlayers(int numPlayers) {
         for (int i = 0; i < numPlayers; i++) {
+
             System.out.print(Text.SELECT_PLAYER_NAMES + (i + 1) + ": ");
             String name = Text.readString();
-            PlayerManager.getPlayerList().add(new Player(name));
+
+            System.out.println(Text.SELECT_PLAYER_COLOR + (i + 1) + ": ");
+            String color = Text.readString();
+
+            PlayerManager.getPlayerList().add(new Player(name, color));
         }
         displayPlayers();
     }

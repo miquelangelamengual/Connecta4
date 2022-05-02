@@ -27,6 +27,7 @@ public class Text {
 
     public String SELECT_PLAYER_COUNT = "Select the number of players: ";
     public String SELECT_PLAYER_NAMES = "Select the name of the player ";
+    public String SELECT_PLAYER_COLOR = "Select the color of the player ";
 
 
 }
