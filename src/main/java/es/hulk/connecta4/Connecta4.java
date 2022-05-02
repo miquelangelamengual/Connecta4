@@ -8,8 +8,9 @@ public class Connecta4 {
     private static Board board;
     private static MainMenu menu;
 
-    public void main(String[] args) {
-        menu = new MainMenu(this);
+    public static void main(String[] args) {
+        menu = new MainMenu();
+        menu.selectPlayerName();
     }
 
 }
