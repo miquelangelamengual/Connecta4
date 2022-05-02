@@ -22,6 +22,10 @@ public class MainMenu {
         createPlayers(numPlayers);
     }
 
+    private void selectBoard() {
+
+    }
+
     private void createPlayers(int numPlayers) {
         for (int i = 0; i < numPlayers; i++) {
 
