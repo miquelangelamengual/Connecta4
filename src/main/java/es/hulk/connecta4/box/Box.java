@@ -4,11 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@AllArgsConstructor
 @Getter @Setter
 public class Box {
 
     private boolean isEmpty;
     private String color;
 
+    public Box(int x, int j) {
+        this.isEmpty = true;
+        this.color = "";
+    }
 }
