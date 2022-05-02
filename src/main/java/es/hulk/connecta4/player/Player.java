@@ -1,14 +1,18 @@
 package es.hulk.connecta4.player;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@AllArgsConstructor
 @Getter @Setter
 public class Player {
 
     private String name;
     private String color;
+    private boolean isPlaying;
 
+    public Player(String name, String color) {
+        this.name = name;
+        this.color = color;
+        this.isPlaying = false;
+    }
 }

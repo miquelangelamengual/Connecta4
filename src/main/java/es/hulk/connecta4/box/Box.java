@@ -1,6 +1,5 @@
 package es.hulk.connecta4.box;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
