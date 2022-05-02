@@ -1,15 +1,20 @@
 package es.hulk.connecta4.menus;
 
-import es.hulk.connecta4.Connecta4;
 import es.hulk.connecta4.board.Board;
 import es.hulk.connecta4.player.Player;
 import es.hulk.connecta4.player.PlayerManager;
 import es.hulk.connecta4.utils.Text;
+import lombok.Getter;
+import lombok.Setter;
 
+@Getter @Setter
 public class MainMenu {
 
     private Board board;
-    private Connecta4 connecta4;
+
+    public MainMenu() {
+        this.selectPlayerName();
+    }
 
     public void selectPlayerName() {
         System.out.print(Text.SELECT_PLAYER_COUNT);
@@ -28,5 +33,9 @@ public class MainMenu {
 
             PlayerManager.addPlayer(new Player(name, color));
         }
+    }
+
+    private void generateBoard(int x, int y) {
+        this.board = new Board(x, y);
     }
 }

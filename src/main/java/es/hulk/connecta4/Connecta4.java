@@ -11,6 +11,7 @@ public class Connecta4 {
     public static void main(String[] args) {
         menu = new MainMenu();
         menu.selectPlayerName();
+        board = menu.getBoard();
     }
 
 }
