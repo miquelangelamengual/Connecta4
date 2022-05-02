@@ -26,7 +26,7 @@ public class MainMenu {
             System.out.println(Text.SELECT_PLAYER_COLOR + (i + 1) + ": ");
             String color = Text.readString();
 
-            PlayerManager.getPlayerList().add(new Player(name, color));
+            PlayerManager.addPlayer(new Player(name, color));
         }
     }
 }
