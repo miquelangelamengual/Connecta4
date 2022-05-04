@@ -1,12 +1,15 @@
 package es.hulk.connecta4.board;
 
+import es.hulk.connecta4.Connecta4;
 import es.hulk.connecta4.box.Box;
+import lombok.Getter;
 
+@Getter
 public class Board {
 
-    private int rows;
-    private int columns;
-    private Box[][] board;
+    private final int rows;
+    private final int columns;
+    private final Box[][] board;
 
     public Board(int rows, int columns) {
         this.rows = rows;
@@ -23,12 +26,10 @@ public class Board {
     public void printBoard() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                if (board[i][j].isEmpty()) {
-                    System.out.print(" [   ] ");
-                } else if (board[i][j].getColor() == ' ') {
+                if (board[i][j].isEmpty() || board[i][j].getColor().isEmpty()) {
                     System.out.print(" [   ] ");
                 } else {
-                    System.out.print(" [ " + this.board[i][j].getColor() + " ] ");
+                    System.out.print(" [ " + board[i][j].getColor() + " ] ");
                 }
             }
             System.out.println();
