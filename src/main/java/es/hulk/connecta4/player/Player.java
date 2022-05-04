@@ -3,8 +3,6 @@ package es.hulk.connecta4.player;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Locale;
-
 @Getter @Setter
 public class Player {
 
