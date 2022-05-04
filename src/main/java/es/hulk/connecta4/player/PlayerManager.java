@@ -1,5 +1,6 @@
 package es.hulk.connecta4.player;
 
+import es.hulk.connecta4.utils.Text;
 import lombok.Getter;
 
 import java.util.ArrayList;
@@ -37,5 +38,25 @@ public class PlayerManager {
             }
         }
         return null;
+    }
+
+    public static String getPlayerColor() {
+        for (Player player : playerList) {
+            return String.valueOf(player.getColor().charAt(0));
+        }
+        return null;
+    }
+
+    public static void createPlayers(int numPlayers) {
+        for (int i = 0; i < numPlayers; i++) {
+
+            System.out.print(Text.SELECT_PLAYER_NAMES + (i + 1) + ": ");
+            String name = Text.readString();
+
+            System.out.print(Text.SELECT_PLAYER_COLOR + (i + 1) + ": (TIENE QUE SER UN CARACTER) ");
+            String color = Text.readString();
+
+            PlayerManager.addPlayer(new Player(name, color));
+        }
     }
 }
