@@ -7,10 +7,10 @@ import lombok.Setter;
 public class Player {
 
     private String name;
-    private String color;
+    private char color;
     private boolean isPlaying;
 
-    public Player(String name, String color) {
+    public Player(String name, char color) {
         this.name = name;
         this.color = color;
         this.isPlaying = false;

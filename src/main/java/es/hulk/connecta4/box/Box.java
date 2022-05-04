@@ -1,5 +1,6 @@
 package es.hulk.connecta4.box;
 
+import es.hulk.connecta4.player.Player;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -7,10 +8,11 @@ import lombok.Setter;
 public class Box {
 
     private boolean isEmpty;
-    private String color;
+    private char color;
+    private Player player;
 
     public Box(int x, int j) {
         this.isEmpty = true;
-        this.color = "";
+        this.color = player.getColor();
     }
 }
