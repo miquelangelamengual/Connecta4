@@ -1,7 +1,10 @@
 package es.hulk.connecta4.utils;
 
+import lombok.experimental.UtilityClass;
+
 import java.util.Scanner;
 
+@UtilityClass
 public class Text {
 
     private final Scanner scanner = new Scanner(System.in);
@@ -33,10 +36,18 @@ public class Text {
         log("Elige una opción: ");
     }
 
-    public String SELECT_PLAYER_COUNT = "Select the number of players: ";
-    public String SELECT_PLAYER_NAMES = "Select the name of the player ";
-    public String SELECT_PLAYER_COLOR = "Select the color of the player ";
-    public String CUSTOM_BOARD_ROW = "Insert the number of rows: ";
-    public String CUSTOM_BOARD_COLUMN = "Insert the number of columns: ";
+    public void printPlayerSelection() {
+        logNewLine("");
+        logNewLine("Bienvenido al juego Connecta 4");
+        logNewLine("");
+        logNewLine("A continuacion, selecciona cuantos jugadores quieres que juegen");
+        logNewLine("");
+    }
+
+    public String SELECT_PLAYER_NAMES = "Selecciona el nombre del jugador ";
+    public String SELECT_PLAYER_COLOR = "Selecciona el color de la ficha del jugador ";
+    public String CUSTOM_BOARD_ROW = "Seleccione el numero de filas: ";
+    public String CUSTOM_BOARD_COLUMN = "Seleccione el numero de columnas: ";
+    public String POSITION_BUSY = "Esta posicion esta ocupada, prueba con otra";
 
 }
