@@ -1,7 +1,7 @@
 package es.hulk.connecta4.board;
 
-import es.hulk.connecta4.Connecta4;
 import es.hulk.connecta4.box.Box;
+import es.hulk.connecta4.player.Player;
 import lombok.Getter;
 
 @Getter
@@ -26,13 +26,20 @@ public class Board {
     public void printBoard() {
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < columns; j++) {
-                if (board[i][j].isEmpty() || board[i][j].getColor().isEmpty()) {
-                    System.out.print(" [   ] ");
-                } else {
-                    System.out.print(" [ " + board[i][j].getColor() + " ] ");
-                }
+                System.out.print(this.board[i][j].toString());
             }
             System.out.println();
         }
+    }
+
+    public boolean uncover(int column, Player player) {
+        for (int i = 0; i < board.length; i++) {
+            if (board[i][column].isEmpty()) {
+                board[i][column].setEmpty(false);
+                board[i][column].setColor(player.getColor());
+                return true;
+            }
+        }
+        return false;
     }
 }

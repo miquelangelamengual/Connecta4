@@ -6,6 +6,8 @@ import es.hulk.connecta4.utils.Text;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Scanner;
+
 @Getter @Setter
 public class MainMenu {
 
@@ -16,10 +18,16 @@ public class MainMenu {
     }
 
     private void selectPlayerName() {
+        try {
         Text.printPlayerSelection();
-        int numPlayers = Text.readInt();
+        Scanner scanner = new Scanner(System.in);
+        int numPlayers = scanner.nextInt();
         PlayerManager.createPlayers(numPlayers);
         this.selectBoard();
+        } catch (Exception e) {
+            System.out.println(Text.INVALID_OPTION);
+            this.selectPlayerName();
+        }
     }
 
     private void selectBoard() {

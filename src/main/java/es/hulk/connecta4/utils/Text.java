@@ -7,6 +7,12 @@ import java.util.Scanner;
 @UtilityClass
 public class Text {
 
+    public String SELECT_PLAYER_NAMES = "Selecciona el nombre del jugador ";
+    public String SELECT_PLAYER_COLOR = "Selecciona el color de la ficha del jugador ";
+    public String CUSTOM_BOARD_ROW = "Seleccione el numero de filas: ";
+    public String CUSTOM_BOARD_COLUMN = "Seleccione el numero de columnas: ";
+    public String INVALID_OPTION = "ERROR: Opción invalida";
+
     private final Scanner scanner = new Scanner(System.in);
 
     public void logNewLine(String str) {
@@ -43,11 +49,5 @@ public class Text {
         logNewLine("A continuacion, selecciona cuantos jugadores quieres que juegen");
         logNewLine("");
     }
-
-    public String SELECT_PLAYER_NAMES = "Selecciona el nombre del jugador ";
-    public String SELECT_PLAYER_COLOR = "Selecciona el color de la ficha del jugador ";
-    public String CUSTOM_BOARD_ROW = "Seleccione el numero de filas: ";
-    public String CUSTOM_BOARD_COLUMN = "Seleccione el numero de columnas: ";
-    public String POSITION_BUSY = "Esta posicion esta ocupada, prueba con otra";
 
 }

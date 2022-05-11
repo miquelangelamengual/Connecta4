@@ -11,6 +11,7 @@ public class PlayerManager {
     @Getter private static List<Player> playerList = new ArrayList<>();
 
     public static void addPlayer(Player player) {
+        player.setId(playerList.size() + 1);
         playerList.add(player);
     }
 
@@ -22,15 +23,6 @@ public class PlayerManager {
         playerList.clear();
     }
 
-    public static Player getPlayer(String name) {
-        for (Player player : playerList) {
-            if (player.getName().equals(name)) {
-                return player;
-            }
-        }
-        return null;
-    }
-
     public static Player getPlayerByName(String name) {
         for (Player player : playerList) {
             if (player.getName().equals(name)) {
@@ -40,9 +32,18 @@ public class PlayerManager {
         return null;
     }
 
-    public static String getPlayerColor() {
+    public static String getPlayerByColor() {
         for (Player player : playerList) {
             return String.valueOf(player.getColor().charAt(0));
+        }
+        return null;
+    }
+
+    public static Player getPlayerByID(String id) {
+        for (Player player : playerList) {
+            if (player.getId() == Integer.parseInt(id)) {
+                return player;
+            }
         }
         return null;
     }
