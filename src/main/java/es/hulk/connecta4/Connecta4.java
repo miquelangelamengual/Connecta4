@@ -16,5 +16,4 @@ public class Connecta4 {
         board = menu.getBoard();
         electionMenu = new ElectionMenu();
     }
-
 }
