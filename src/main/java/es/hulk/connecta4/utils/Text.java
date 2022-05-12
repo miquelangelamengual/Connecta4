@@ -1,8 +1,7 @@
 package es.hulk.connecta4.utils;
 
+import es.hulk.connecta4.Connecta4;
 import lombok.experimental.UtilityClass;
-
-import java.util.Scanner;
 
 @UtilityClass
 public class Text {
@@ -11,9 +10,6 @@ public class Text {
     public String SELECT_PLAYER_COLOR = "Selecciona el color de la ficha del jugador ";
     public String CUSTOM_BOARD_ROW = "Seleccione el numero de filas: ";
     public String CUSTOM_BOARD_COLUMN = "Seleccione el numero de columnas: ";
-    public String INVALID_OPTION = "ERROR: Opción invalida";
-
-    private final Scanner scanner = new Scanner(System.in);
 
     public void logNewLine(String str) {
         System.out.println(str);
@@ -21,18 +17,6 @@ public class Text {
 
     public void log(String str) {
         System.out.print(str);
-    }
-
-    public int readInt() {
-        return scanner.nextInt();
-    }
-
-    public String readString() {
-        return scanner.next();
-    }
-
-    public char readChar() {
-        return scanner.next().charAt(0);
     }
 
     public void getBoardMenu() {
@@ -48,6 +32,20 @@ public class Text {
         logNewLine("");
         logNewLine("A continuacion, selecciona cuantos jugadores quieres que juegen");
         logNewLine("");
+    }
+
+    public void printDraw() {
+        logNewLine("");
+        logNewLine("La partida ha terminado en empate");
+        logNewLine("");
+        Connecta4.getBoard().printBoard();
+    }
+
+    public void printWin() {
+        logNewLine("");
+        logNewLine("Felicidades, has ganado");
+        logNewLine("");
+        Connecta4.getBoard().printBoard();
     }
 
 }
