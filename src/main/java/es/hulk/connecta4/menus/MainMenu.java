@@ -2,11 +2,10 @@ package es.hulk.connecta4.menus;
 
 import es.hulk.connecta4.board.Board;
 import es.hulk.connecta4.player.PlayerManager;
+import es.hulk.connecta4.utils.ErrorCatching;
 import es.hulk.connecta4.utils.Text;
 import lombok.Getter;
 import lombok.Setter;
-
-import java.util.Scanner;
 
 @Getter @Setter
 public class MainMenu {
@@ -18,33 +17,28 @@ public class MainMenu {
     }
 
     private void selectPlayerName() {
-        try {
         Text.printPlayerSelection();
-        Scanner scanner = new Scanner(System.in);
-        int numPlayers = scanner.nextInt();
+        int numPlayers = ErrorCatching.returnParseInt(false);
         PlayerManager.createPlayers(numPlayers);
         this.selectBoard();
-        } catch (Exception e) {
-            System.out.println(Text.INVALID_OPTION);
-            this.selectPlayerName();
-        }
     }
 
     private void selectBoard() {
         Text.getBoardMenu();
-        int option = Text.readInt();
+        int option = ErrorCatching.returnChoseInt(0,3);
         switch (option) {
             case 1:
                 generateBoard(6, 7);
                 break;
             case 2:
                 System.out.print(Text.CUSTOM_BOARD_ROW);
-                int row = Text.readInt();
+                int row = ErrorCatching.returnParseInt(false);
 
                 System.out.print(Text.CUSTOM_BOARD_COLUMN);
-                int column = Text.readInt();
+                int column = ErrorCatching.returnParseInt(false);
 
                 generateBoard(row, column);
+                break;
         }
     }
 

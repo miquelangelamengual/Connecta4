@@ -4,9 +4,8 @@ import es.hulk.connecta4.Connecta4;
 import es.hulk.connecta4.board.Board;
 import es.hulk.connecta4.player.Player;
 import es.hulk.connecta4.player.PlayerManager;
+import es.hulk.connecta4.utils.ErrorCatching;
 import es.hulk.connecta4.utils.Text;
-
-import java.util.Scanner;
 
 public class ElectionMenu {
 
@@ -18,14 +17,30 @@ public class ElectionMenu {
     }
 
     public void putIntoBoard() {
-        Scanner scanner = new Scanner(System.in);
-        for (Player player : PlayerManager.getPlayerList()) {
-            System.out.println(player.getName() + " tourn");
-            int column = scanner.nextInt();
-            board.uncover(column, player);
-            board.printBoard();
+        selectTurn();
+
+        if (board.isDraw()) {
+            Text.printDraw();
+            System.exit(404);
         }
 
-        this.putIntoBoard();
+        if (board.isWining()) {
+            Text.printWin();
+            System.exit(404);
+        }
+
+        if (!board.isDraw() && !board.isWining()) {
+            this.putIntoBoard();
+        }
+
+    }
+
+    public void selectTurn() {
+        for (Player player : PlayerManager.getPlayerList()) {
+            System.out.println(player.getName() + " turn");
+            board.uncoverBox(ErrorCatching.returnParseInt(true), player);
+            if (board.isWining() || board.isDraw()) break;
+            board.printBoard();
+        }
     }
 }
