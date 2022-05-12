@@ -32,12 +32,84 @@ public class Board {
         }
     }
 
-    public boolean uncover(int column, Player player) {
-        for (int i = 0; i < board.length; i++) {
+    public boolean uncoverBox(int column, Player player) {
+        for (int i = board.length - 1; i >= 0; i--) {
             if (board[i][column].isEmpty()) {
                 board[i][column].setEmpty(false);
                 board[i][column].setColor(player.getColor());
                 return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isDraw() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (board[i][j].isEmpty()) {
+                    return false;
+                }
+            }
+        }
+        return true;
+    }
+
+    public boolean isWining() {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (board[i][j].isEmpty()) {
+                    continue;
+                }
+                if (j + 3 < columns) {
+                    if (board[i][j].getColor() == board[i][j + 1].getColor() &&
+                            board[i][j].getColor() == board[i][j + 2].getColor() &&
+                            board[i][j].getColor() == board[i][j + 3].getColor()) {
+                        return true;
+                    }
+                }
+            }
+        }
+        // vertical
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (board[i][j].isEmpty()) {
+                    continue;
+
+                } else if (i + 3 < rows) {
+                    if (board[i][j].getColor() == board[i + 1][j].getColor() &&
+                            board[i][j].getColor() == board[i + 2][j].getColor() &&
+                            board[i][j].getColor() == board[i + 3][j].getColor()) {
+                        return true;
+                    }
+                }
+            }
+        }
+        // diagonal right
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (board[i][j].isEmpty()) {
+                    continue;
+                } else if (i + 3 < rows && j + 3 < columns) {
+                    if (board[i][j].getColor() == board[i + 1][j + 1].getColor() &&
+                            board[i][j].getColor() == board[i + 2][j + 2].getColor() &&
+                            board[i][j].getColor() == board[i + 3][j + 3].getColor()) {
+                        return true;
+                    }
+                }
+            }
+        }
+        // diagonal left
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < columns; j++) {
+                if (board[i][j].isEmpty()) {
+                    continue;
+                } else if (i + 3 < rows && j - 3 >= 0) {
+                    if (board[i][j].getColor() == board[i + 1][j - 1].getColor() &&
+                            board[i][j].getColor() == board[i + 2][j - 2].getColor() &&
+                            board[i][j].getColor() == board[i + 3][j - 3].getColor()) {
+                        return true;
+                    }
+                }
             }
         }
         return false;
