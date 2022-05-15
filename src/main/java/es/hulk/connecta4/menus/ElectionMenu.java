@@ -19,20 +19,9 @@ public class ElectionMenu {
     public void putIntoBoard() {
         selectTurn();
 
-        if (board.isDraw()) {
-            Text.printDraw();
-            System.exit(404);
-        }
-
-        if (board.isWining()) {
-            Text.printWin();
-            System.exit(404);
-        }
-
-        if (!board.isDraw() && !board.isWining()) {
-            this.putIntoBoard();
-        }
-
+        if (board.isDraw()) Text.printDraw();
+        if (board.isWining()) Text.printWin();
+        if (!board.isDraw() && !board.isWining()) this.putIntoBoard();
     }
 
     public void selectTurn() {

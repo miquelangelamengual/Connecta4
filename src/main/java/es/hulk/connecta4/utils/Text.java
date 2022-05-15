@@ -39,13 +39,15 @@ public class Text {
         logNewLine("La partida ha terminado en empate");
         logNewLine("");
         Connecta4.getBoard().printBoard();
+        System.exit(0);
     }
 
     public void printWin() {
         logNewLine("");
-        logNewLine("Felicidades, has ganado");
+        logNewLine("Felicidades, has changes ganado");
         logNewLine("");
         Connecta4.getBoard().printBoard();
+        System.exit(0);
     }
 
 }
