@@ -1,6 +1,7 @@
 package es.hulk.connecta4.utils;
 
 import es.hulk.connecta4.Connecta4;
+import es.hulk.connecta4.player.Player;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass
@@ -20,6 +21,7 @@ public class Text {
     }
 
     public void getBoardMenu() {
+        logNewLine("");
         logNewLine("1 - Tablero normal (7x6)");
         logNewLine("2 - Tablero personalizado");
         logNewLine("");
@@ -42,12 +44,11 @@ public class Text {
         System.exit(0);
     }
 
-    public void printWin() {
+    public void printWin(Player player) {
         logNewLine("");
-        logNewLine("Felicidades, has changes ganado");
+        logNewLine("El jugador " + player.getName() + " ha ganado");
         logNewLine("");
         Connecta4.getBoard().printBoard();
         System.exit(0);
     }
-
 }
