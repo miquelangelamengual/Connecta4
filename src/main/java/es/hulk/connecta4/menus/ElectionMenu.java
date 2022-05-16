@@ -20,8 +20,10 @@ public class ElectionMenu {
         for (Player player : PlayerManager.getPlayerList()) {
             System.out.println(player.getName() + " turn");
             board.uncoverBox(ErrorCatching.returnParseInt(true), player);
+
             if (board.isDraw()) Text.printDraw();
             if (board.isWining()) Text.printWin(player);
+
             if (!board.isDraw() && !board.isWining()) this.putIntoBoard();
         }
     }
