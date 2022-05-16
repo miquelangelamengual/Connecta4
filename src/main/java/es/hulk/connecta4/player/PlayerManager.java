@@ -15,6 +15,10 @@ public class PlayerManager {
         playerList.add(player);
     }
 
+    public static Player getWinner() {
+        for (Player player : playerList) if (player.isWinner()) return player;
+        return null;
+    }
 
     public static void createPlayers(int numPlayers) {
         Scanner scanner = new Scanner(System.in);
