@@ -9,8 +9,8 @@ import es.hulk.connecta4.utils.Text;
 
 public class ElectionMenu {
 
-    private MainMenu menu = Connecta4.getMenu();
-    private Board board = menu.getBoard();
+    private final MainMenu menu = Connecta4.getMenu();
+    private final Board board = menu.getBoard();
 
     public ElectionMenu() {
         this.putIntoBoard();
